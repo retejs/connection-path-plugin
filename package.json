@@ -1,0 +1,19 @@
+{
+  "name": "rete-connection-path-plugin",
+  "version": "0.1.0",
+  "description": "",
+  "main": "build/connection-path-plugin.min.js",
+  "scripts": {
+    "build": "rete --build rete.config.js",
+    "build:dev": "rete --build rete.config.js --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "d3-shape": "^1.2.2"
+  },
+  "devDependencies": {
+    "rete-cli": "^0.1.2"
+  }
+}
