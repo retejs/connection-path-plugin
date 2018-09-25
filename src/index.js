@@ -19,18 +19,23 @@ class PathFactory {
             (points)
     }
 
-    getData(type, options) {
-        return this.line(Transformer[type](options));
+    getData(transformer, options) {
+        return this.line(transformer(options));
     }
 }
 
-function install(editor, { type = Type.DEFAULT, curve = d3.curveBasis, options = {} }) {
+function install(editor, { type, transformer, curve, options = {} }) {
+    type = type || Type.DEFAULT;
+    curve = curve || d3.curveBasis;
+
+    if (transformer && typeof transformer !== 'function') throw new Error('transformer property must be a function');
+    if (!Transformer[type]) throw new Error(`transformer with type ${type} doesn't exist`);
 
     editor.on('connectionpath', data => {
         const { points } = data;
         const factory = new PathFactory(points, curve);
 
-        data.d = factory.getData(type, options);
+        data.d = factory.getData(transformer || Transformer[type], options);
     });
 }
 
