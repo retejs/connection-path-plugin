@@ -45,7 +45,7 @@ function install(editor, { type, transformer, arrow, curve, options = {} }) {
             const marker = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
             el.querySelector('svg').appendChild(marker);
-            marker.classList = 'marker';
+            marker.classList.add('marker');
             marker.setAttribute('fill', arrow.color || 'steelblue');
             marker.setAttribute('d', arrow.marker || 'M-5,-10 L-5,10 L20,0 z');
 
