@@ -1,6 +1,6 @@
 {
   "name": "rete-connection-path-plugin",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "",
   "main": "build/connection-path-plugin.min.js",
   "scripts": {
@@ -14,6 +14,6 @@
     "d3-shape": "^1.2.2"
   },
   "devDependencies": {
-    "rete-cli": "^0.1.2"
+    "rete-cli": "0.6.0-rc.3"
   }
 }
