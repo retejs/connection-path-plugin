@@ -2,7 +2,7 @@ import * as d3 from 'd3-shape';
 import { PathFactory } from './path-factory';
 import Transformer from './transformers';
 import Type from './types';
-import { updateMarker } from './utils';
+import { getTransformAlong } from './utils';
 
 function install(editor, { type, transformer, arrow, curve, options = {} }) {
     type = type || Type.DEFAULT;
@@ -19,7 +19,7 @@ function install(editor, { type, transformer, arrow, curve, options = {} }) {
     });
 
     if (arrow) {
-        editor.on('renderconnection', ({ el, connection }) => {
+        editor.on('renderconnection', ({ el }) => {
             const path = el.querySelector('path');
             const marker = document.createElementNS('http://www.w3.org/2000/svg', 'path');
 
@@ -28,17 +28,18 @@ function install(editor, { type, transformer, arrow, curve, options = {} }) {
             marker.setAttribute('fill', arrow.color || 'steelblue');
             marker.setAttribute('d', arrow.marker || 'M-5,-10 L-5,10 L20,0 z');
 
-            updateMarker(path, marker, { el, connection });
+            marker.setAttribute('transform', getTransformAlong(path, -25));
         });
 
-        editor.on('updateconnection', ({ el, connection }) => {
+        editor.on('updateconnection', ({ el }) => {
             const path = el.querySelector('path');
             const marker = el.querySelector('.marker');
 
-            updateMarker(path, marker, { el, connection });
+            marker.setAttribute('transform', getTransformAlong(path, -25));
         });
     }
 }
+export { getTransformAlong } from './utils';
 
 export default {
     install,
