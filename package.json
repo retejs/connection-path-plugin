@@ -3,6 +3,7 @@
   "version": "0.3.0",
   "description": "",
   "main": "build/connection-path-plugin.common.js",
+  "module": "build/connection-path-plugin.esm.js",
   "scripts": {
     "build": "rete --build rete.config.js",
     "build:dev": "rete --build rete.config.js --watch",
