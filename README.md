@@ -21,3 +21,13 @@ editor.use(ConnectionPathPlugin, {
 | curve | any [curve from d3-shape](https://github.com/d3/d3-shape#curves) | + |
 | options | `{ vertical: Boolean, curvature: Number }` | + |
 | arrow | `Boolean` or `{ color,  marker: /* path d attribute */ }` | + |
+
+### Update connection options at runtime
+
+If you need to update the connection options at runtime trigger the `updateconnectionoptions` event with the updated options, e.g.
+
+```js
+editor.trigger('updateconnectionoptions', {
+    type: ConnectionPathPlugin.LINEAR
+});
+```

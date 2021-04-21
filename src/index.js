@@ -38,6 +38,18 @@ function install(editor, { type, transformer, arrow, curve, options = {} }) {
             marker.setAttribute('transform', getTransformAlong(path, -25));
         });
     }
+
+    editor.bind('updateconnectionoptions');
+    editor.on('updateconnectionoptions', ({ type: updatedType, transformer: updatedTransformer, arrow: updatedArrow, curve: updatedCurve, options: updatedOptions = {} }) => {
+        type = updatedType || Type.DEFAULT;
+        curve = updatedCurve || d3.curveBasis;
+        transformer = updatedTransformer;
+        arrow = updatedArrow;
+        options = updatedOptions;
+        editor.nodes.forEach(node => {
+            editor.view.updateConnections({ node });
+        });
+    });
 }
 export { getTransformAlong } from './utils';
 
