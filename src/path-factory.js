@@ -1,4 +1,4 @@
-import * as d3 from 'd3-shape';
+import { line } from "d3-shape";
 
 export class PathFactory {
 
@@ -10,7 +10,7 @@ export class PathFactory {
     line(transformer) {
         let points = transformer(this.points);
 
-        return d3.line()
+        return line()
             .x(d => d[0])
             .y(d => d[1])
             .curve(this.curve)

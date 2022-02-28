@@ -1,6 +1,6 @@
 {
   "name": "rete-connection-path-plugin",
-  "version": "0.3.2-alpha1",
+  "version": "0.3.2-alpha2",
   "description": "",
   "main": "build/connection-path-plugin.common.js",
   "module": "build/connection-path-plugin.esm.js",
@@ -20,6 +20,6 @@
     "d3-shape": "^3.1.0"
   },
   "devDependencies": {
-    "rete-cli": "^0.6.1-rc.1"
+    "efficy-rete-cli": "^1.0.0-alpha1"
   }
 }
