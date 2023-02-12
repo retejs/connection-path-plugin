@@ -2,9 +2,6 @@
   "name": "rete-connection-path-plugin",
   "version": "2.0.0-beta.1",
   "description": "",
-  "main": "build/connection-path-plugin.common.js",
-  "module": "build/connection-path-plugin.esm.js",
-  "types": "types",
   "scripts": {
     "build": "rete build -c rete.config.ts",
     "build:dev": "rete build -c rete.config.ts --watch",
@@ -19,17 +16,17 @@
   },
   "peerDependencies": {
     "d3-shape": "^1.2.2",
-    "rete": "*",
-    "rete-area-plugin": "file:../area-plugin/rete-area-plugin-0.2.1.tgz",
-    "rete-render-utils": "file:../render-utils/rete-render-utils-0.1.0.tgz"
+    "rete": "file:../rete/dist/package.tgz",
+    "rete-area-plugin": "file:../area-plugin/dist/package.tgz",
+    "rete-render-utils": "file:../render-utils/dist/package.tgz"
   },
   "devDependencies": {
     "@types/d3-shape": "^3.1.1",
     "d3-shape": "^1.2.2",
-    "rete": "file:../rete/rete-2.0.0-beta.1.tgz",
-    "rete-area-plugin": "file:../area-plugin/rete-area-plugin-0.2.1.tgz",
-    "rete-cli": "1.0.0-beta.16",
-    "rete-render-utils": "file:../render-utils/rete-render-utils-0.1.0.tgz",
+    "rete": "file:../rete/dist/package.tgz",
+    "rete-area-plugin": "file:../area-plugin/dist/package.tgz",
+    "rete-cli": "^1.0.0-beta.18",
+    "rete-render-utils": "file:../render-utils/dist/package.tgz",
     "typescript": "4.8.4"
   }
 }
