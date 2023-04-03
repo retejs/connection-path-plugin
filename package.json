@@ -8,9 +8,18 @@
   },
   "author": "Vitaliy Stoliarov",
   "license": "MIT",
+  "keywords": [
+    "plugin",
+    "rete",
+    "Rete.js"
+  ],
+  "homepage": "https://retejs.org",
   "repository": {
     "type": "git",
     "url": "https://github.com/retejs/connection-path-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/retejs/connection-path-plugin/issues"
   },
   "peerDependencies": {
     "d3-shape": "^1.2.2",
