@@ -1,23 +1,22 @@
-Connection Path
+Rete.js Connection path plugin
 ====
-#### Rete.js plugin
+[![Made in Ukraine](https://img.shields.io/badge/made_in-ukraine-ffd700.svg?labelColor=0057b7)](https://stand-with-ukraine.pp.ua)
+[![Discord](https://img.shields.io/discord/1081223198055604244?color=%237289da&label=Discord)](https://discord.gg/cxSFkPZdsV)
 
-```js
-import ConnectionPathPlugin from 'rete-connection-path-plugin';
+**Rete.js plugin**
 
-editor.use(ConnectionPathPlugin, {
-    type: ConnectionPathPlugin.DEFAULT, // DEFAULT or LINEAR transformer
-    transformer: () => ([x1, y1, x2, y2]) => [[x1, y1], [x2, y2]], // optional, custom transformer
-    curve: ConnectionPathPlugin.curveBundle, // curve identifier
-    options: { vertical: false, curvature: 0.4 }, // optional
-    arrow: { color: 'steelblue', marker: 'M-5,-10 L-5,10 L20,0 z' }
-});
-```
+## Key features
 
-| Property | Description | Optional | 
-|---|---|---|
-| type | Type of built-in transformer | + |
-| transformer | Custom transformer | + |
-| curve | any [curve from d3-shape](https://github.com/d3/d3-shape#curves) | + |
-| options | `{ vertical: Boolean, curvature: Number }` | + |
-| arrow | `Boolean` or `{ color,  marker: /* path d attribute */ }` | + |
+- **Change connection path**: application of different types of paths using the `d3-shape` library
+
+## Getting Started
+
+Please refer to the [guide](https://retejs.org/docs/guides/connection-path) and [example](https://retejs.org/examples/connection-path) using this plugin
+
+## Contribution
+
+Please refer to the [Contribution](https://retejs.org/docs/contribution) guide
+
+## License
+
+[MIT](https://github.com/retejs/connection-path-plugin/blob/master/LICENSE)
