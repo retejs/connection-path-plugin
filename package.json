@@ -1,6 +1,6 @@
 {
   "name": "rete-connection-path-plugin",
-  "version": "2.0.0-beta.1",
+  "version": "2.0.0-beta.2",
   "description": "",
   "scripts": {
     "build": "rete build -c rete.config.ts",
@@ -32,7 +32,7 @@
     "d3-shape": "^1.2.2",
     "rete": "^2.0.0-beta.1",
     "rete-area-plugin": "^2.0.0-beta.1",
-    "rete-cli": "^1.0.0-beta.25",
+    "rete-cli": "^1.0.0-beta.26",
     "rete-render-utils": "^2.0.0-beta.1",
     "typescript": "4.8.4"
   }
