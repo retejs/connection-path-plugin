@@ -3,11 +3,11 @@ import { ReteOptions } from 'rete-cli'
 
 export default <ReteOptions>{
   input: 'src/index.ts',
-  name: 'ConnectionPathPlugin',
+  name: 'ReteConnectionPathPlugin',
   globals: {
     'rete': 'Rete',
     'rete-area-plugin': 'ReteAreaPlugin',
-    'rete-render-utils': 'RenderUtils',
+    'rete-render-utils': 'ReteRenderUtils',
     'd3-shape': 'd3'
   }
 }
