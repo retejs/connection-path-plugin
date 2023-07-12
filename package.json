@@ -1,6 +1,6 @@
 {
   "name": "rete-connection-path-plugin",
-  "version": "2.0.0-beta.6",
+  "version": "2.0.0",
   "description": "",
   "scripts": {
     "build": "rete build -c rete.config.ts",
@@ -23,17 +23,17 @@
   },
   "peerDependencies": {
     "d3-shape": "^3.0.0",
-    "rete": "^2.0.0-beta.8",
-    "rete-area-plugin": "^2.0.0-beta.10",
-    "rete-render-utils": "^2.0.0-beta.11"
+    "rete": "^2.0.1",
+    "rete-area-plugin": "^2.0.0",
+    "rete-render-utils": "^2.0.0"
   },
   "devDependencies": {
     "@types/d3-shape": "^3.1.1",
     "d3-shape": "^3.0.0",
-    "rete": "^2.0.0-beta.8",
-    "rete-area-plugin": "^2.0.0-beta.10",
-    "rete-cli": "^1.0.0-beta.29",
-    "rete-render-utils": "^2.0.0-beta.11",
+    "rete": "^2.0.1",
+    "rete-area-plugin": "^2.0.0",
+    "rete-cli": "^1.0.1",
+    "rete-render-utils": "^2.0.0",
     "typescript": "4.8.4"
   },
   "dependencies": {
