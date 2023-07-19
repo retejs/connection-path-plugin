@@ -10,15 +10,30 @@ import { getTransformAlong } from './utils'
 export { Transformers }
 
 type RenderProduces<Schemes extends BaseSchemes> =
-    | { type: 'connectionpath', data: { payload: Schemes['Connection'], path?: string, points: Position[] } }
+  | { type: 'connectionpath', data: { payload: Schemes['Connection'], path?: string, points: Position[] } }
 
-type Props<Schemes extends BaseSchemes> = {
-    transformer?: ((connection: Schemes['Connection']) => Transformer)
-    curve?: ((connection: Schemes['Connection']) => CurveFactoryLineOnly)
-    arrow?: (connection: Schemes['Connection']) => boolean | { color?: string, marker?: string }
+/**
+ * Connection path plugin props
+ */
+export type Props<Schemes extends BaseSchemes> = {
+  /** The transformer function that defines auxiliary points for the path. Default: `Transformers.classic({})` */
+  transformer?: ((connection: Schemes['Connection']) => Transformer)
+  /** The curve factory function that defines the shape of the path. Default: `curveBundle.beta(0.9)` */
+  curve?: ((connection: Schemes['Connection']) => CurveFactoryLineOnly)
+  /** Customize/enable arrow. Allows to change arrow color (default: `steelblue`) and marker (default: `M-5,-10 L-5,10 L20,0 z)` */
+  arrow?: (connection: Schemes['Connection']) => boolean | { color?: string, marker?: string }
 }
 
+/**
+ * Connection path plugin. Allows to customize connection path and arrow.
+ * @listens connectionpath
+ * @listens rendered
+ */
 export class ConnectionPathPlugin<Schemes extends BaseSchemes, K> extends Scope<never, [RenderProduces<Schemes>, ...Area2DInherited<Schemes, K>]> {
+  /**
+   * @constructor
+   * @param props Connection path plugin props
+   */
   constructor(private props?: Props<Schemes>) {
     super('connection-path')
   }
