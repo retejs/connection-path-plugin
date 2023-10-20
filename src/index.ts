@@ -90,7 +90,7 @@ export class ConnectionPathPlugin<Schemes extends BaseSchemes, K> extends Scope<
         const svgEl = document.createElementNS('http://www.w3.org/2000/svg', 'svg')
         const marker = document.createElementNS('http://www.w3.org/2000/svg', 'path')
 
-        svgEl.setAttribute('style', 'position: absolute; overflow: visible !important')
+        svgEl.setAttribute('style', 'position: absolute; overflow: visible !important; pointer-events: none')
         svgEl.appendChild(marker)
         el.appendChild(svgEl)
 
