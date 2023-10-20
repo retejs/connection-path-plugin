@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/retejs/connection-path-plugin/compare/v2.0.1...v2.0.2) (2023-10-20)
+
+
+### Bug Fixes
+
+* don't capture pointer event ([6a9b5b3](https://github.com/retejs/connection-path-plugin/commit/6a9b5b35e5cf0f7991692e05a0bda8c5396aff22))
+
 ## [2.0.1](https://github.com/retejs/connection-path-plugin/compare/v2.0.0...v2.0.1) (2023-10-16)
 
 
