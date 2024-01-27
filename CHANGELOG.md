@@ -1,3 +1,10 @@
+## [2.0.3](https://github.com/retejs/connection-path-plugin/compare/v2.0.2...v2.0.3) (2024-01-27)
+
+
+### Bug Fixes
+
+* **build:** source maps ([06ca9f6](https://github.com/retejs/connection-path-plugin/commit/06ca9f63e4c3bd32a7608b7fd61f5d6041e2d4b5))
+
 ## [2.0.2](https://github.com/retejs/connection-path-plugin/compare/v2.0.1...v2.0.2) (2023-10-20)
 
 
