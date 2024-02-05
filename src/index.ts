@@ -21,8 +21,8 @@ export type Props<Schemes extends BaseSchemes> = {
   transformer?: ((connection: Schemes['Connection']) => Transformer)
   /** The curve factory function that defines the shape of the path. Default: `curveBundle.beta(0.9)` */
   curve?: ((connection: Schemes['Connection']) => CurveFactoryLineOnly)
-  /** Customize/enable arrow. Allows to change arrow color (default: `steelblue`) and marker (default: `M-5,-10 L-5,10 L20,0 z)` */
-  arrow?: (connection: Schemes['Connection']) => boolean | { color?: string, marker?: string }
+  /** Customize/enable arrow. Allows to change arrow color (default: `steelblue`), marker (default: `M-5,-10 L-5,10 L20,0 z`) and offset (default: -15) */
+  arrow?: (connection: Schemes['Connection']) => boolean | { color?: string, marker?: string, offset?: number }
 }
 
 /**
@@ -53,15 +53,17 @@ export class ConnectionPathPlugin<Schemes extends BaseSchemes, K> extends Scope<
         const { points, payload } = context.data
         const curve = this.props?.curve ? this.props.curve(payload) : curveBundle.beta(0.9)
         const transformer = this.props?.transformer ? this.props.transformer(payload) : Transformers.classic({})
+        const arrow = this.props?.arrow ? this.props.arrow(payload) : {};
         const factory = new PathFactory(curve)
         const transformedPoints = transformer(points)
         const path = factory.getData(transformedPoints)
+        const arrowOffset = typeof arrow === 'object' && arrow.offset !== undefined ? arrow.offset : -15;
 
         const p = document.createElementNS('http://www.w3.org/2000/svg', 'path')
 
         p.setAttribute('d', path || classicConnectionPath(transformedPoints as [Position, Position], 0.3))
 
-        this.transforms.set(payload.id, getTransformAlong(p, -15))
+        this.transforms.set(payload.id, getTransformAlong(p, arrowOffset))
         this.updateArrow(payload)
 
         return path ? {
