@@ -51,26 +51,32 @@ export class ConnectionPathPlugin<Schemes extends BaseSchemes, K> extends Scope<
 
       if (context.type === 'connectionpath') {
         const { points, payload } = context.data
-        const curve = this.props?.curve ? this.props.curve(payload) : curveBundle.beta(0.9)
-        const transformer = this.props?.transformer ? this.props.transformer(payload) : Transformers.classic({})
+        const curve = this.props?.curve
+          ? this.props.curve(payload)
+          : curveBundle.beta(0.9)
+        const transformer = this.props?.transformer
+          ? this.props.transformer(payload)
+          : Transformers.classic({})
         const factory = new PathFactory(curve)
         const transformedPoints = transformer(points)
         const path = factory.getData(transformedPoints)
 
         const p = document.createElementNS('http://www.w3.org/2000/svg', 'path')
 
-        p.setAttribute('d', path || classicConnectionPath(transformedPoints as [Position, Position], 0.3))
+        p.setAttribute('d', path ?? classicConnectionPath(transformedPoints as [Position, Position], 0.3))
 
         this.transforms.set(payload.id, getTransformAlong(p, -15))
         this.updateArrow(payload)
 
-        return path ? {
-          ...context,
-          data: {
-            ...context.data,
-            path
+        return path
+          ? {
+            ...context,
+            data: {
+              ...context.data,
+              path
+            }
           }
-        } : context
+          : context
       }
       if (context.type === 'connectionremoved') {
         const { id } = context.data
@@ -109,7 +115,9 @@ export class ConnectionPathPlugin<Schemes extends BaseSchemes, K> extends Scope<
     const data = this.props.arrow(c)
 
     if (!data) return null
-    const { color = 'steelblue', marker = 'M-5,-10 L-5,10 L20,0 z' } = data === true ? {} : data
+    const { color = 'steelblue', marker = 'M-5,-10 L-5,10 L20,0 z' } = data === true
+      ? {}
+      : data
 
     return { color, marker }
   }
@@ -125,6 +133,6 @@ export class ConnectionPathPlugin<Schemes extends BaseSchemes, K> extends Scope<
     data.marker.setAttribute('fill', color)
     data.marker.setAttribute('d', marker)
 
-    data.marker.setAttribute('transform', this.transforms.get(c.id) || '')
+    data.marker.setAttribute('transform', this.transforms.get(c.id) ?? '')
   }
 }

@@ -11,6 +11,6 @@ export class PathFactory {
       .y(d => d[1])
       .curve(this.curve)
 
-    return getPath(points.map(p => ([p.x, p.y])))
+    return getPath(points.map(p => [p.x, p.y]))
   }
 }
