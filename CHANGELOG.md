@@ -1,3 +1,10 @@
+## [2.0.4](https://github.com/retejs/connection-path-plugin/compare/v2.0.3...v2.0.4) (2024-08-30)
+
+
+### Bug Fixes
+
+* update cli and fix linting errors ([a6f1007](https://github.com/retejs/connection-path-plugin/commit/a6f10078ae7d3f893ba8c554597ba6516058fbd8))
+
 ## [2.0.3](https://github.com/retejs/connection-path-plugin/compare/v2.0.2...v2.0.3) (2024-01-27)
 
 
