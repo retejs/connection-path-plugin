@@ -11,7 +11,9 @@ export function getTransformAlong(path: SVGPathElement, offset: number, delta = 
   const length = path.getTotalLength() * delta
   const p1 = path.getPointAtLength(length + offset)
   const p2 = path.getPointAtLength(length)
-  const angle = 180 + (needRotate ? getAngle(p1, p2) : 0)
+  const angle = 180 + (needRotate
+    ? getAngle(p1, p2)
+    : 0)
 
   return `translate(${p1.x}, ${p1.y}) rotate(${angle})`
 }
